@@ -15,7 +15,7 @@ from excel_processor import ExcelProcessor
 class ExcelMergerApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Excel合并工具 - 兔子版v1.0")
+        self.setWindowTitle("Excel合并工具 - 兔子版v1.1")
         self.resize(1400, 700)
         
         # 设置窗口图标
