@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (
     QTableWidgetItem, QFileDialog, QMessageBox, QProgressBar, QPlainTextEdit, QComboBox, QInputDialog
 )
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont, QCursor, QColor
+from PyQt5.QtGui import QFont, QCursor, QColor, QIcon
 from config_manager import ConfigManager
 from excel_processor import ExcelProcessor
 
@@ -17,6 +17,11 @@ class ExcelMergerApp(QWidget):
         super().__init__()
         self.setWindowTitle("Excel合并工具 - 兔子版v1.0")
         self.resize(1400, 700)
+        
+        # 设置窗口图标
+        icon_path = os.path.join(os.getcwd(), 'my_icon.ico')
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QIcon(icon_path))
 
         self.src_dir = ""
         self.out_dir = os.path.join(os.getcwd(), "out_put")
@@ -358,6 +363,12 @@ class ExcelMergerApp(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setFont(QFont("Microsoft YaHei", 10))
+    
+    # 设置应用程序图标，确保在Windows任务栏上显示
+    icon_path = os.path.join(os.getcwd(), 'my_icon.ico')
+    if os.path.exists(icon_path):
+        app.setWindowIcon(QIcon(icon_path))
+    
     win = ExcelMergerApp()
     win.show()
     app.exec_()
